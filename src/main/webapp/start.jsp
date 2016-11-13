@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Hudson Demo</title>
+<title>CI Demo</title>
 </head>
 <body>
 <a href="/webapp/index.jsp">Hello World</a>
@@ -12,10 +12,9 @@
 <form action="/webapp/greeting" method="post">
 		<table cellpadding="10">
 			<% String errMsg = (String)request.getAttribute("errMsg");
-			if(errMsg != null){
-			    out.println(errMsg);
-			}
-			%>
+			if(errMsg != null){%>
+				<thead><h4 style="color: red;"><%=errMsg %></h4></thead>
+			<%} %>
 			<tr>
 				<td>Username</td>
 				<td><input type="text" name="txtname"/></td>

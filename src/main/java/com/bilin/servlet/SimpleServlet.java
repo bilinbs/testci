@@ -28,9 +28,11 @@ public class SimpleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().setAttribute("userName", null);
-		response.getWriter().append("You are now logged out. <br/>")
-		.append("<hr/")
-		.append("<a href=\"/webapp\">Home</a>");
+		response.getWriter().append("<html><head></head><body>")
+		.append("You are now logged out. <br/>")
+		.append("<hr/>")
+		.append("<a href=\"/webapp\">Home</a>")
+		.append("</body>");
 		
 	}
 
