@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<td><input type="submit" value="Login"/></td>
-				<td><input type="button" value="Reset" disabled="disabled"></td>
+				<td><input type="button" value="Reset" disabled="disabled" title="Not implemented"></td>
 			</tr>
 		</table>
 	</form>
