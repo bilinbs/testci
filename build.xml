@@ -15,9 +15,35 @@
   <!-- ====================================================================== -->
   <!-- Help target                                                            -->
   <!-- ====================================================================== -->
+<!-- Configure properties to access the Manager application -->
+  <property name="url"      value="http://localhost:8080/manager/text"/>
+  <property name="username" value="admin"/>
+  <property name="password" value="admin"/>
+  <property name="path" value="/webapp"/>
 
-  <target name="help">
-    <echo message="Please run: $ant -projecthelp"/>
+  <!-- Configure the path to the Tomcat installation -->
+  <property environment="env"/>
+  <property name="catalina.home" value="${env.CATALINA_HOME}"/>
+
+  <!-- Configure the custom Ant tasks for the Manager application -->
+  <import file="${catalina.home}/bin/catalina-tasks.xml"/>
+
+  <target name="deploy" description="Install web application"
+          depends="compile">
+    <deploy url="${url}" username="${username}" password="${password}"
+           path="${path}"  war="file:./target/webapp.war"/>
   </target>
+
+  <target name="reload" description="Reload web application"
+          depends="compile">
+    <reload  url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+  </target>
+
+  <target name="undeploy" description="Remove web application">
+    <undeploy url="${url}" username="${username}" password="${password}"
+            path="${path}"/>
+  </target>
+
 
 </project>
