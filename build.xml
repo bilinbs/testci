@@ -39,8 +39,10 @@
     <reload  url="${url}" username="${username}" password="${password}"
             path="${path}"/>
   </target>
-
-  <target name="undeploy" description="Remove web application">
+  <target name="check-context">
+    <available file="${env.CATALINA_HOME}${path}.war" property="context.present"/>
+  </target>
+  <target name="undeploy"  depends="check-context" if="context.present" description="Remove web application">
     <undeploy url="${url}" username="${username}" password="${password}"
             path="${path}"/>
   </target>
