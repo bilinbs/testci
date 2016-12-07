@@ -16,7 +16,7 @@
 				<thead><h4 style="color: red;"><%=errMsg %></h4></thead>
 			<%} %>
 			<tr>
-				<td>Username</td>
+				<td style="color:blue">Username</td>
 				<td><input type="text" name="txtname"/></td>
 			</tr>
 			<tr>
